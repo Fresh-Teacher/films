@@ -1,0 +1,148 @@
+:root {
+  --colorPrimaryDark: #0b132b;
+  --colorPrimaryLight: #494f61;
+  --colorPlaceholder: #9b9fa8;
+  --colorBackground: #eeeff0;
+  --colorBorder: #cdcfd3;
+  --colorAccent: #003bde;
+  --gutter: 0 16px;
+  --border: 1.5px solid var(--colorBorder);
+  --radius: 3px;
+}
+
+h5,
+p {
+  // font-family: 'Lato';
+  font-size: 15px;
+}
+
+.filter {
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  margin: auto;
+  width: 100%;
+  background-color: $primaryDarkColor;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  animation: opacity 250ms linear;
+
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+/* Input styling */
+
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: var(--radius);
+  width: 100%;
+  height: 36px;
+
+  padding: var(--gutter);
+  background-color: $primaryDarkColor;
+}
+
+.input__active {
+  border-color: var(--colorAccent);
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.input__placeholder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.placeholder {
+  color: $primaryLightColor;
+}
+
+.input:hover {
+  cursor: pointer;
+}
+
+.placeholder {
+  color: $accentColor;
+}
+
+.input__selected {
+  color: $accentColor;
+}
+
+/* Dropdown styling */
+
+.filter__structure {
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 200px;
+
+  @media screen and (min-width: 768px) {
+    width: 256px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 280px;
+  }
+  overflow: scroll;
+  background-color: $primaryDarkColor;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  overflow-x: hidden;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.filter__structure > div {
+  color: $accentColor;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.filter__structure > div:hover {
+  background-color: var(--colorAccent);
+  color: white;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.input__open {
+  display: inline-block;
+  padding: 5px 20px;
+}
+svg {
+  fill: $accentColor;
+}
+
+.input__open:hover > svg {
+  fill: $primaryLightColor;
+}

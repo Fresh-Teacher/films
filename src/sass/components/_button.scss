@@ -1,0 +1,144 @@
+.header-list-buttons {
+  display: flex;
+}
+.header-list-buttons-item + .header-list-buttons-item {
+  margin-left: 20px;
+  @media screen and (min-width: 768px) {
+    margin-left: 30px;
+  }
+  @media screen and (min-width: 1024px) {
+    margin-left: 15px;
+  }
+}
+.button {
+  position: relative;
+  width: 128px;
+  height: 44px;
+  overflow: hidden;
+  border: solid 1px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: $text-white-color;
+  background-color: transparent;
+  border-color: $text-white-color;
+  transition: background-color 0.25s ease, color 0.25s ease,
+    box-shadow 0.25s ease, border-color 0.25s ease;
+  &:hover,
+  &:focus {
+    border-color: $accent-lighter-color;
+    color: $primaryLightColor;
+    background-color: $accent-lighter-color;
+    box-shadow: 0px 8px 43px $btn-hover-color,
+      inset 0px 0px 6px 6px rgba(0, 0, 0, 0.1);
+  }
+  &:active {
+    box-shadow: none;
+  }
+  @media screen and (min-width: 768px) {
+    width: 150px;
+  }
+}
+.button--active {
+  background-color: $accent-lighter-color;
+  border: none;
+}
+
+// .modal__button {
+//   transition: background-color 0.25s ease, color 0.25s ease,
+//     box-shadow 0.25s ease, border-color 0.25s ease;
+//   &:hover,
+//   &:focus {
+//     border-color: $accent-lighter-color;
+//     color: $primaryLightColor;
+//     background-color: $accent-lighter-color;
+//     box-shadow: 0px 8px 43px $btn-hover-color,
+//       inset 0px 0px 6px 6px rgba(0, 0, 0, 0.1);
+//   }
+// }
+.button-clean {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 20px;
+  width: 20px;
+  background-image: url('/src/images/header-library/clean-icon.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.button-animate:hover,
+.button-animate:focus {
+  .button-clean {
+    animation: move 1.5s infinite linear;
+    &:hover,
+    &:focus {
+      animation-iteration-count: 0;
+      animation: grow 1s infinite linear;
+    }
+  }
+  @keyframes grow {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes move {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-90deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+//--------------swal(alert) window---------------------
+.swal-overlay--show-modal .swal-modal {
+  -webkit-animation: showSweetAlert 0.8s;
+  animation: showSweetAlert 0.8s;
+}
+.swal-icon--warning__body,
+.swal-icon--warning__dot {
+  background-color: $accent-lighter-color;
+}
+.swal-icon--warning.swal-icon--warning {
+  border-color: $accent-lighter-color;
+}
+.swal-title {
+  color: $text-black-color;
+}
+.swal-text {
+  color: $text-footer-color;
+}
+.swal-button--danger {
+  background: $accent-lighter-color;
+  &:hover {
+    border-color: $accent-lighter-color;
+    color: $primaryLightColor;
+    background-color: $accent-lighter-color !important;
+    box-shadow: 0px 0px 5px $btn-hover-color,
+      inset 0px 0px 6px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+.swal-button--cancel {
+  color: $text-footer-color;
+  &:hover {
+    border-color: $accent-lighter-color;
+    color: $primaryLightColor;
+    background-color: $accent-lighter-color !important;
+    box-shadow: 0px 0px 5px $btn-hover-color,
+      inset 0px 0px 6px 6px rgba(0, 0, 0, 0.1);
+  }
+}

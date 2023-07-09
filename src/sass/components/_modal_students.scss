@@ -1,0 +1,163 @@
+.student__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50%;
+}
+
+.student__photo--fit{
+        object-position: 50% 0%;
+}
+
+.student__photo--fit-minus{
+        object-position: 50% 70%;
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.backdrop__students {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 222;
+    transform: scale(0);
+    // transition: transform 250ms linear;
+}
+  
+  .mount {
+    transform: scale(1);
+  }
+  
+.modal__students {
+    display: flex;
+    position: absolute;
+    padding: 30px;
+    width: 50vw;
+    max-height: 70%;
+    background-color: $bg-first-color;
+    @media screen and (max-width: 1024px) {
+    padding: 20px;
+    }
+    @media screen and (max-width: 768px) {
+    padding: 10px;
+    width: 40vw;
+    }
+    @media screen and (max-width: 480px) {
+        padding: 10px;
+        width: 60vw;
+        }
+}
+
+.students__container{
+    width: 100%;
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 20px 20px;
+    overflow-y: scroll;
+    @media screen and (max-width: 1500px) {
+        grid-template-columns:repeat(3, 1fr);
+    }
+    @media screen and (max-width: 1024px) {
+        grid-template-columns:repeat(2, 1fr);
+    }
+    @media screen and (max-width: 768px) {
+        grid-template-columns:repeat(1, 1fr);
+    }
+}
+
+.students__card{
+    position: relative;
+    height: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.students__card--thumb{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.student__photo--container, .students__card--back-side{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.student__photo--container:hover .student__information{
+    opacity: 0.9;
+    transform: translateY(0);
+    z-index: 3;
+    transition: transform 250ms linear, opacity 250ms linear;
+}
+
+.student__information{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: $bg-dark-modal-color;
+    width: 100%;
+    height: 20%;
+    opacity: 0.8;
+    padding: 8px;
+}
+
+.student__title {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: $accent-darker-color
+}
+
+.student__text{
+    margin-top: 5px;
+    color: white;
+}
+
+.students__card--back-side{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    text-align: left;
+    padding: 15px;
+    background-color: #808080;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.students__card.active .students__card--thumb {
+    transform: rotateY(180deg);
+}
+
+.students__card-text--back-side{
+font-family: inherit;
+font-size: 14px;
+}
+
+.students__card-title{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: $accent-darker-color;
+}
+
+.students__card-text--bold{
+    font-weight: 600;
+}

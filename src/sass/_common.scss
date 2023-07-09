@@ -1,0 +1,27 @@
+// utils
+@import './utils/is-hidden';
+@import './utils/variables';
+@import './utils/normalize';
+
+@import '../../node_modules/modern-normalize/modern-normalize.css';
+@import '../../node_modules/nprogress/nprogress.css';
+
+// @import '../../node_modules/animate.css/animate.css';
+
+//base
+@import './base/reset';
+
+@import './components/card';
+@import './components/container';
+@import './components/footer';
+@import './components/header';
+@import './components/home';
+@import './components/modal';
+@import './components/modal_students';
+@import './components/my_library';
+@import './components/pagination';
+@import './components/theme-switch';
+@import './components/button';
+@import './components/top-button';
+@import './components/loader';
+@import './components/_select';
