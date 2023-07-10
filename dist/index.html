@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  /> -->
+  <link rel="stylesheet" href="index.f87fbfd9.css">
+  <link rel="shortcut icon" href="https://icon-library.com/images/movies-icon-ico/movies-icon-ico-24.jpg" type="image/x-icon">
+  <title>Fresh Teacher's Video Library</title>
+</head>
+
+<body class="body__container body__background">
+<header class="header">
+  <div class="header-container container">
+  <navigation class="nav">
+    <button class="logo">
+      <svg class="logo-icon" width="24" height="24">
+        <use href="filmoteca.1c46b91a.svg#icon-filmoteca"></use>
+      </svg>
+    </button>
+    <span class="logo-text">Fresh Teacher's Video Library</span>
+    
+    <ul class="nav-list">
+      <li class="nav-list-item">
+        <button id="home" class="nav-btn nav-btn--underline">home</button>
+      </li>
+      <li class="nav-list-item">
+        <button id="library" class="nav-btn">my library</button>
+      </li>
+    </ul>
+  </navigation>
+  <form action="" class="header-form">
+    <input type="text" class="header-search-input" name="searchQuery" placeholder="Search Movie">
+    <button type="submit" class="search-btn">
+      <svg class="icon-search" width="24" height="24">
+        <use href="search.5f21a0d7.svg#icon-search"></use>
+      </svg>
+    </button>
+  </form>
+  <button class="filter-btn filter__link" type="button">
+    <svg width="30" height="30" class="filter-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="filter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+      <path d="M3.853 54.87C10.47 40.9 24.54 32 40 32H472C487.5 32 501.5 40.9 508.1 54.87C514.8 68.84 512.7 85.37 502.1 97.33L320 320.9V448C320 460.1 313.2 471.2 302.3 476.6C291.5 482 278.5 480.9 268.8 473.6L204.8 425.6C196.7 419.6 192 410.1 192 400V320.9L9.042 97.33C-.745 85.37-2.765 68.84 3.854 54.87L3.853 54.87z"></path></svg><span class="filter-btn__text">Filter</span>
+  </button>
+  <!-- <a class="filter__link" href="#">Filters</a> -->
+  <ul class="header-list-buttons"></ul>
+</div>
+
+</header>
+
+<main>
+  <div class="filter hide">
+  <!-- sort -->
+  <div class="content__container" data-action="sort">
+    <div class="input">
+      <div class="input__placeholder">
+        <p class="placeholder" data-action="sort">
+          Raiting/Popularity
+        </p>
+        <span class="input__open" data-action="sort">
+                    <svg width="16px" height="7px" data-action="sort">
+                        <use href="icons.de05fcad.svg#icon-triangle" data-action="sort"></use>
+                    </svg>
+                </span>
+      </div>
+    </div>
+    <div class="filter__structure hide" data-action="sort">
+      <div id="raiting_up" data-value="raiting_up">
+        Raiting &#9650
+      </div>
+      <div id="raiting_down" data-value="raiting_down">
+        Raiting &#9660
+      </div>
+      <div id="popularity_up" data-value="popularity_up">
+        Popularity &#9650
+      </div>
+      <div id="popularity_down" data-value="popularity_down">
+        Popularity &#9660
+      </div>
+    </div>
+  </div>
+  <!-- ganre -->
+  <div class="content__container" data-action="genre">
+    <div class="input">
+      <div class="input__placeholder">
+        <p class="placeholder" data-action="genre">
+          Genres
+        </p>
+        <span class="input__open" data-action="genre">
+                    <svg width="16px" height="7px" data-action="genre">
+                        <use href="icons.de05fcad.svg#icon-triangle" data-action="genre"></use>
+                    </svg>
+                </span>
+      </div>
+    </div>
+    <div class="filter__structure filter__structure--genre hide" data-action="genre">
+    </div>
+  </div>
+  <!-- years -->
+  <div class="content__container" data-action="years">
+    <div class="input">
+      <div class="input__placeholder">
+        <p class="placeholder" data-action="years">
+          Release Years
+        </p>
+        <span class="input__open" data-action="years">
+                    <svg width="16px" height="7px" data-action="years">
+                        <use href="icons.de05fcad.svg#icon-triangle" data-action="years"></use>
+                    </svg>
+                </span>
+      </div>
+    </div>
+    <div class="filter__structure filter__structure--years hide" data-action="years">
+        <div id="2023" data-value="2023">
+          2023
+        </div>
+        <!-- Please note that the years from 2012 to 1900 are autogenerated below -->
+        <script>
+          (function() {
+            let years = [];
+            for (let year = 2022; year >= 1900; year--) {
+              years.push(year);
+            }
+            years.forEach((year) => {
+              let div = document.createElement('div');
+              div.id = year;
+              div.setAttribute('data-value', year);
+              div.textContent = year;
+              document.querySelector('.filter__structure--years').appendChild(div);
+            });
+          })();
+        </script>
+      </div>
+      </div>
+      </div>
+      
+
+  <section class="library">
+  <div class="container">
+    <ul class="library__list" id="library"></ul>
+  </div>
+</section>
+
+  <div class="container_card container">
+  <ul class="gallery-container_grid card__colection modalEventListener"></ul>
+  <button id="arrUp" class="arrUpBtn">
+    <svg class="arr-up-icon" width="24" height="24">
+      <use href="arr-up.6e3402aa.svg#arr-up"></use>
+    </svg> 
+  </button>
+</div>
+  <div class="pagination-block container">
+  <ul class="pagination__list">
+    <!--    <li>-->
+    <!--      <a href='#' class='pagination__arrow&#45;&#45;left'>-->
+    <!--        <svg class='icon icon-arrow-left' width='16' height='16' viewBox='0 0 16 16' fill='none'-->
+    <!--             xmlns='http://www.w3.org/2000/svg'>-->
+    <!--          <path d='M12.6666 8H3.33325' stroke-width='1.33333' stroke-linecap='round'-->
+    <!--                stroke-linejoin='round' />-->
+    <!--          <path d='M7.99992 12.6667L3.33325 8.00004L7.99992 3.33337' stroke-width='1.33333'-->
+    <!--                stroke-linecap='round' stroke-linejoin='round' />-->
+    <!--        </svg>-->
+    <!--      </a>-->
+    <!--    </li>-->
+    <!--    <li class='active'><a href='#' class='pagination__button__link'>1</a></li>-->
+    <!--    <li><span class='pagination__button__dots'>...</span></li>-->
+    <!--    <li><a href='#' class='pagination__button__link'>2</a></li>-->
+    <!--    <li><span class='pagination__button__dots'>...</span></li>-->
+    <!--    <li><a href='#' class='pagination__button__link '>500</a></li>-->
+    <!--    <li>-->
+    <!--      <a href='#' class='pagination__arrow&#45;&#45;right'>-->
+    <!--        <svg class='icon icon-arrow-right' width='16' height='16' viewBox='0 0 16 16' fill='none'-->
+    <!--             xmlns='http://www.w3.org/2000/svg'>-->
+    <!--          <path d='M3.33341 8H12.6667' stroke-width='1.33333' stroke-linecap='round'-->
+    <!--                stroke-linejoin='round' />-->
+    <!--          <path d='M8.00008 12.6667L12.6667 8.00004L8.00008 3.33337' stroke-width='1.33333'-->
+    <!--                stroke-linecap='round' stroke-linejoin='round' />-->
+    <!--        </svg>-->
+    <!--      </a>-->
+    <!--    </li>-->
+  </ul>
+</div>
+  <backdrop class="backdrop">
+</backdrop>
+
+  
+  <!-- <div class="loader">
+  <svg class="loader__icon" width="100" height="100">
+    <use href="./images/loader-icon.svg#icon-loader"></use>
+  </svg>
+</div> -->
+
+</main>
+
+<footer>
+  <div class="footer__container container">
+  <div class="footer__text">
+    <p class="footer__copy">&#169; 2022 | All Rights Reserved | </p>
+    <span class="footer__copy">Developed with 
+        <svg class="footer__icon animate__animated animate__pulse animate__infinite" width="20" height="13" style="animation-duration: 0.5s;">
+          <use href="sprite.a0e65a1d.svg#icon-heart"></use>
+        </svg>
+      </span>
+      
+    </span>
+    <a class="footer__link" data-modal-open="" href="">by Fresh Teacher</a>
+  </div>
+</div>
+</footer>
+
+<backdrop data-modal="" class="backdrop__students is-hidden">
+    <div class="modal__students">
+        <ul class="students__container">
+            <li class="students__card">
+                <div class="students__card--thumb">
+                    <div class="student__photo--container">
+                        <img class="student__photo student__photo--fit" src="/Olga_Dudnik.073a1ff4.jpg" alt="Olga Dudnik">
+                    </div>
+                    <div class="student__information">
+                        <h2 class="student__title">
+                            Olga Dudnik
+                        </h2>
+                        <p class="student__text">
+                            Team Lead
+                        </p>
+                    </div>
+                    <div class="students__card--back-side">
+                        <h3 class="students__card-title">Team Lead</h3>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold"> FT-04</span> - Верстка футера;
+                        </p>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold"> FT-08</span> - Пагінація на головній сторінці;
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="students__card">
+                <div class="students__card--thumb">
+                    <div class="student__photo--container">
+                        <img class="student__photo student__photo--fit" src="/Kirill_Rumezhak.23eb4046.jpg" alt="Kirill Rumezhak">
+                    </div>
+                    <div class="student__information">
+                        <h2 class="student__title">
+                            Kirill Rumezhak
+                        </h2>
+                        <p class="student__text">
+                            Scrum Master
+                        </p>
+                    </div>
+                    <div class="students__card--back-side">
+                        <h3 class="students__card-title">Scrum Master</h3>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-10</span> - Пошук та відображення фільмів за
+                            ключовим словом;
+                        </p>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-11</span> - Верстка контейнеру сторінки "My
+                            Library";
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="students__card">
+                <div class="students__card--thumb">
+                    <div class="student__photo--container">
+                        <img class="student__photo" src="/Alina_Churilova.81f5c423.jpg" alt="Alina Churilova">
+                    </div>
+                    <div class="student__information">
+                        <h2 class="student__title">
+                            Alina Churilova
+                        </h2>
+                        <p class="student__text">
+                            Developer
+                        </p>
+                    </div>
+                    <div class="students__card--back-side">
+                        <h3 class="students__card-title">Developer</h3>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-06</span> - Верстка контейнеру головної сторінки;
+                        </p>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-18 / FT-19</span> - Реалізація логіки кнопки "Add
+                            to
+                            watched" та "Add to
+                            queue";
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="students__card">
+                <div class="students__card--thumb">
+                    <div class="student__photo--container">
+                        <img class="student__photo student__photo--fit-minus" src="/Eugene_Multan.3c27b1ec.jpg" alt="Eugene Multan">
+                    </div>
+                    <div class="student__information">
+                        <h2 class="student__title">
+                            Eugene Multan
+                        </h2>
+                        <p class="student__text">
+                            Developer
+                        </p>
+                    </div>
+                    <div class="students__card--back-side">
+                        <h3 class="students__card-title">Developer</h3>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-02</span> - Після натискання на логотип
+                            відображається головна сторінка;
+                        </p>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-13</span> - За натисканням на логотип/кнопку
+                            "Home" відображається головна сторінка;
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="students__card">
+                <div class="students__card--thumb">
+                    <div class="student__photo--container">
+                        <img class="student__photo" src="/Dmitry_Davidyuk.e01a8f72.jpg" alt="Dmitry Davidyuk">
+                    </div>
+                    <div class="student__information">
+                        <h2 class="student__title">
+                            Dmitry Davidyuk
+                        </h2>
+                        <p class="student__text">
+                            Developer
+                        </p>
+                    </div>
+                    <div class="students__card--back-side">
+                        <h3 class="students__card-title">Developer</h3>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-05</span> - Верстка шаблону картки одного фільму;
+                        </p>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-07 / FT-09</span> - Реалізація підвантаження
+                            популярних фільмів на головну сторінку та при переході на кожну сторінку;
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="students__card">
+                <div class="students__card--thumb">
+                    <div class="student__photo--container">
+                        <img class="student__photo student__photo--fit" src="/Dmitrij_Parfenyk.3d57ce51.jpg" alt="Dmitrij Parfenyk">
+                    </div>
+                    <div class="student__information">
+                        <h2 class="student__title">
+                            Dmitrij Parfenyk
+                        </h2>
+                        <p class="student__text">
+                            Developer
+                        </p>
+                    </div>
+                    <div class="students__card--back-side">
+                        <h3 class="students__card-title">Developer</h3>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-01</span> - Верстка хедеру головної сторінки;
+                        </p>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-25</span> - Реалізація кнопки Button_UP;
+                        </p>
+                        <!-- <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-14</span> - За натисканням на кнопку "Watched"
+                            показуються переглянуті фільми користувача;
+                        </p>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-15</span> - За натисканням на кнопку "Queue"
+                            показуються фільми додані в чергу користувача;
+                        </p> -->
+                    </div>
+                </div>
+            </li>
+            <li class="students__card">
+                <div class="students__card--thumb">
+                    <div class="student__photo--container">
+                        <img class="student__photo" src="/Rostislav_Kulik.510b747e.jpg" alt="Rostislav Kulik">
+                    </div>
+                    <div class="student__information">
+                        <h2 class="student__title">
+                            Rostislav Kulik
+                        </h2>
+                        <p class="student__text">
+                            Developer
+                        </p>
+                    </div>
+                    <div class="students__card--back-side">
+                        <h3 class="students__card-title">Developer</h3>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-23</span> - Верстка модалкb з інформацією про
+                            учасників команди;
+                        </p>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-26</span> - Реалізація логіки меню фільтрації та
+                            сортування;
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="students__card">
+                <div class="students__card--thumb">
+                    <div class="student__photo--container">
+                        <img class="student__photo" src="/Serhii_Deikun.e3135eb9.jpg" alt="Serhii Deikun">
+                    </div>
+                    <div class="student__information">
+                        <h2 class="student__title">
+                            Serhii Deikun
+                        </h2>
+                        <p class="student__text">
+                            Developer
+                        </p>
+                    </div>
+                    <div class="students__card--back-side">
+                        <h3 class="students__card-title">Developer</h3>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-21</span> - Реалізація підключення та
+                            налаштування Loader;
+                        </p>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-24</span> -Написання стилів для меню фільтрації
+                            та сортування;
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="students__card">
+                <div class="students__card--thumb">
+                    <div class="student__photo--container">
+                        <img class="student__photo student__photo--fit" src="/Tetiana_Sosiedka.853e4f6c.jpg" alt="Tetiana Sosiedka">
+                    </div>
+                    <div class="student__information">
+                        <h2 class="student__title">
+                            Tetiana Sosiedka
+                        </h2>
+                        <p class="student__text">
+                            Developer
+                        </p>
+                    </div>
+                    <div class="students__card--back-side">
+                        <h3 class="students__card-title">Developer</h3>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-03</span> - Верстка хедеру сторінки "My Library";
+                        </p>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-12 / FT-14 / FT-15</span> - Реалізація роботи "My
+                            Library" (логіки, відображення, видалення);
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="students__card">
+                <div class="students__card--thumb">
+                    <div class="student__photo--container">
+                        <img class="student__photo" src="/Andrey_Shevelov.f901e0ae.jpg" alt="Andrey Shevelov">
+                    </div>
+                    <div class="student__information">
+                        <h2 class="student__title">
+                            Andrey Shevelov
+                        </h2>
+                        <p class="student__text">
+                            Developer
+                        </p>
+                    </div>
+                    <div class="students__card--back-side">
+                        <h3 class="students__card-title">Developer</h3>
+                        <p class="students__card-text--back-side">
+                            <span class="students__card-text--bold">FT-16 / FT-17 / FT-20</span> - Реалізація модалки
+                            одного фільму (верстка, стилі, логіка);
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</backdrop>
+
+<script src="index.975ef6c8.js" defer=""></script> 
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap.native@4.2.0/dist/bootstrap-native.min.js"></script> -->
+</body>
+</html>
